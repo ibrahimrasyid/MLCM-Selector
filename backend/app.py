@@ -4,8 +4,8 @@ CC Tool Evaluation System — Unified Backend (ML + AI in one Python service)
 Engine 1 (ML) : TF-IDF + Complement Naive Bayes  -> COSMO-RS / DFT / MD
 Engine 2 (AI) : Groq GPT-OSS 120B validation, grounded in domain knowledge
 
-This single service replaces the old server.js (Node) + ml_service.py split,
-so it is easy to host on ONE free backend (e.g. a Hugging Face Space).
+A single Python service (ML classifier + optional LLM validation) so it is
+easy to host on ONE free backend (e.g. a Hugging Face Space).
 
 Run locally:  python app.py   ->  http://localhost:7860
 Env vars   :  GROQ_API_KEY (required for AI), PORT (optional, default 7860)

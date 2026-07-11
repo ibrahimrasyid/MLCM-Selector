@@ -9,6 +9,6 @@
   "notes": [
     "The model consumes raw text via TF-IDF; no accuracy/cost levels are used.",
     "Only property and sub_property are required; application_domain and system_type are optional context.",
-    "Legacy XGBoost regressor files (xgb_regressor.pkl, le_*.pkl) are retained but no longer used by ml_service.py."
+    "Legacy XGBoost artefacts (xgb_regressor.pkl, le_*.pkl) have been removed; the active model is production_chemistry_classifier.pkl."
   ]
 }

@@ -90,10 +90,9 @@ After this, your `backend/` folder should look like:
 backend/
 ├── ml_model/
 ├── .env              ← the file you just created ✅
-├── ml_service.py
-├── package.json
-├── requirements.txt
-└── server.js
+├── app.py
+├── Dockerfile
+└── requirements.txt
 ```
 
 ---
@@ -174,12 +173,12 @@ ML Text Classifier   Groq AI API
 
 | Problem | Solution |
 |---------|----------|
-| `Port 5000 already in use` | Run: `taskkill /IM node.exe /F` (Windows) or `lsof -ti:5000 \| xargs kill` (Mac/Linux) |
-| `Port 5002 already in use` | Close the previous Python terminal |
-| `pip install` fails | Try: `pip install flask flask-cors scikit-learn pandas numpy xgboost joblib` |
-| `GROQ_API_KEY` error | Make sure `.env` file exists inside `backend/` folder with correct key |
-| ML model not found | Make sure `backend/ml_model/` folder contains all `.pkl` files |
-| CORS error in browser | Make sure all 3 services are running (ports 5000, 5002, 5173) |
+| `Port 7860 already in use` | Close the previous `python app.py` terminal, or set another `PORT` |
+| `pip install` fails | Try: `pip install flask flask-cors scikit-learn numpy joblib groq python-dotenv` |
+| `GROQ_API_KEY` error | Make sure `.env` file exists inside `backend/` folder with a valid key |
+| AI panel shows "unavailable" | Missing/invalid Groq key — ML still works; check `.env` (see Step 3) |
+| ML model not found | Make sure `backend/ml_model/production_chemistry_classifier.pkl` exists |
+| CORS / connection error | Make sure both services run (backend port 7860, frontend port 5173) and `VITE_API_URL` is correct |
 | AI returns no result | Check your Groq API key is valid at [console.groq.com](https://console.groq.com) |
 
 ---
@@ -187,22 +186,29 @@ ML Text Classifier   Groq AI API
 ## 📁 Project Structure
 
 ```
-cc-tool-upgrade/
-├── backend/
-│   ├── ml_model/               # Trained model files
+MLCheM-Selector/
+├── backend/                    # Unified Python backend (deploy to Hugging Face)
+│   ├── ml_model/
 │   │   ├── production_chemistry_classifier.pkl   # ← ACTIVE model (TF-IDF + Complement NB)
-│   │   ├── model_metadata.json
-│   │   └── (legacy xgb_regressor.pkl / le_*.pkl — no longer used)
-│   ├── .env                    # ⚠️ Create this yourself (see Step 3)
-│   ├── ml_service.py           # Flask ML microservice
-│   ├── server.js               # Express backend + Groq integration
-│   ├── package.json
-│   └── requirements.txt
-├── frontend/
+│   │   └── model_metadata.json
+│   ├── app.py                  # ML classifier + Groq AI + comparison (Flask)
+│   ├── Dockerfile              # Hugging Face Space (Docker) config
+│   ├── requirements.txt        # Python dependencies
+│   ├── README.md               # HF Space metadata
+│   └── .env                    # ⚠️ Create this yourself (see Step 3)
+├── frontend/                   # React app (deploy to Vercel)
 │   ├── src/
 │   │   └── App.jsx             # Main React application
 │   ├── index.html
 │   └── package.json
+├── Model/                      # Training pipeline (reproducibility)
+│   ├── Dataset.xlsx            # ⚠️ real literature dataset (add this)
+│   ├── train.py                # reproduces the model + Table/metrics
+│   ├── Model_MLchemTools.ipynb # exploratory training notebook
+│   └── requirements.txt
+├── PANDUAN_DEPLOY.md           # step-by-step free hosting guide
+├── REPRODUCIBILITY.md          # how to reproduce the ML results
+├── LICENSE
 └── README.md
 ```
 
