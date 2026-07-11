@@ -104,24 +104,6 @@ npm run dev
 
 ---
 
-## ☁️ Deploy for Free (Vercel)
-
-Two Vercel projects created from **this one repository**:
-
-**Backend project**
-- Root Directory: `backend`
-- Framework Preset: **Other** (Flask auto-detected via `vercel.json`)
-- Environment Variable: `GROQ_API_KEY` = your Groq key
-
-**Frontend project**
-- Root Directory: `frontend`
-- Framework Preset: **Vite**
-- Environment Variable: `VITE_API_URL` = your backend URL (e.g. `https://mlcm-backend.vercel.app`)
-
-Push to `main` and both projects auto-deploy.
-
----
-
 ## 🏗️ Architecture
 
 ```
