@@ -1,0 +1,14 @@
+{
+  "active_model": "production_chemistry_classifier.pkl",
+  "model_type": "TF-IDF + Complement Naive Bayes (text classifier)",
+  "bundle_keys": ["pipeline", "label_encoder", "model_name"],
+  "input_fields": ["property", "sub_property", "application_domain", "system_type"],
+  "input_format": "property . sub_property . application_domain . system_type",
+  "methods": ["COSMO-RS", "DFT", "MD"],
+  "output": "predict_proba -> probability (0-1) per method",
+  "notes": [
+    "The model consumes raw text via TF-IDF; no accuracy/cost levels are used.",
+    "Only property and sub_property are required; application_domain and system_type are optional context.",
+    "Legacy XGBoost regressor files (xgb_regressor.pkl, le_*.pkl) are retained but no longer used by ml_service.py."
+  ]
+}
