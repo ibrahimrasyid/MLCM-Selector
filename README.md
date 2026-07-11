@@ -1,28 +1,29 @@
-# 🧪 CC Tool Evaluation System
-### Computational Chemistry Method Decision Support System
-> Hybrid ML + AI — TF-IDF Text Classifier (Complement NB) × GPT-OSS 120B (Groq)
+# 🧪 MLCheM Selector
+### Machine Learning-based Computational Chemistry Method Selector
+> Hybrid decision support — TF-IDF Text Classifier (Complement NB) × GPT-OSS 120B (Groq)
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 ---
 
 ## 🌐 Live Demo
 
-> **Just want to try it? No installation needed!**
+🔗 **https://mlcm-selector.vercel.app**
 
-🔗 **[https://cc-tool-upgrade.vercel.app](https://cc-tool-upgrade.vercel.app)**
+> No installation needed — open the link, describe your calculation, and compare the ML and AI recommendations side by side.
 
 ---
 
 ## 📖 What is This?
 
-**CC Tool Evaluation System** helps researchers and engineers select the most suitable computational chemistry method for their study. Describe your problem with four text inputs — property, sub-property, application domain, and system type — and the system recommends the best method using two engines running in parallel:
+**MLCheM Selector** helps researchers and engineers choose a suitable computational chemistry method for a given study. Describe your problem with four text inputs — property, sub-property, application domain, and system type — and the system recommends a method using two engines shown side by side:
 
-1. 🤖 **ML Text Classifier** — TF-IDF + Complement Naive Bayes trained on 323 rows of literature
-2. 🧠 **GPT-OSS 120B via Groq** — AI validation grounded in peer-reviewed literature
+1. 🤖 **ML Text Classifier** — TF-IDF + Complement Naive Bayes trained on **323 records from real published studies** (the method actually used in each paper).
+2. 🧠 **GPT-OSS 120B via Groq** — an optional AI "second opinion" grounded in domain knowledge. It does **not** change the ML recommendation.
 
 ### Supported Methods
 
@@ -38,178 +39,103 @@
 
 ### What You Need First
 
-Make sure these are installed on your computer:
-
-| Tool | Download Link | Check if installed |
-|------|--------------|-------------------|
-| Python 3.8+ | [python.org](https://python.org) | `python --version` |
+| Tool | Download Link | Check |
+|------|--------------|-------|
+| Python 3.9+ | [python.org](https://python.org) | `python --version` |
 | Node.js 18+ | [nodejs.org](https://nodejs.org) | `node --version` |
 | Git | [git-scm.com](https://git-scm.com) | `git --version` |
 
----
-
 ### Step 1 — Clone the Repository
 
-Open your terminal (CMD / PowerShell / Terminal) and run:
-
 ```bash
-git clone https://github.com/ibrahimrasyid/cc-tool-upgrade.git
-cd cc-tool-upgrade
+git clone https://github.com/ibrahimrasyid/MLCM-Selector.git
+cd MLCM-Selector
 ```
-
----
 
 ### Step 2 — Get Your Free Groq API Key
 
-This project uses **Groq API** to run the GPT-OSS 120B AI model for free.
-
 1. Go to [console.groq.com](https://console.groq.com) and create a free account
-2. Navigate to **API Keys** in the sidebar
-3. Click **"Create API Key"**
-4. Copy your key — it looks like: `gsk_xxxxxxxxxxxxxxxxxxxx`
+2. Open **API Keys** → **Create API Key**
+3. Copy your key — it looks like `gsk_xxxxxxxxxxxxxxxxxxxx`
 
-> 🔒 Keep your API key private. Never share it or upload it to GitHub.
+> 🔒 Keep your key private. Never share it or commit it to GitHub.
 
----
+### Step 3 — Create Your `backend/.env` File
 
-### Step 3 — Create Your `.env` File
-
-Navigate to the `backend/` folder and create a file named **`.env`**.
-
-Using any text editor, create a new file called `.env` inside the `backend/` folder and paste:
+Create a file named **`.env`** inside the `backend/` folder:
 
 ```env
 GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxx
 ```
 
-> ⚠️ Replace `gsk_xxxxxxxxxxxxxxxxxxxx` with your actual Groq API key from Step 2.
-
-After this, your `backend/` folder should look like:
-
-```
-backend/
-├── ml_model/
-├── .env              ← the file you just created ✅
-├── app.py
-├── Dockerfile
-└── requirements.txt
-```
-
----
+> ⚠️ Replace with your actual key from Step 2. Without it, the ML engine still works and the AI panel shows "unavailable".
 
 ### Step 4 — Start the Application (2 Terminals)
 
-You only need **2 terminal windows** now — the ML model and the Groq AI run in one Python backend (`app.py`).
+The ML model and the Groq AI run together in one Python backend (`app.py`).
 
----
-
-#### 🐍 Terminal 1 — Python Backend (ML + AI) *(Run this FIRST)*
-
+**🐍 Terminal 1 — Python Backend (ML + AI)**
 ```bash
 cd backend
 pip install -r requirements.txt
 python app.py
 ```
+✅ `🚀 Unified backend → http://0.0.0.0:7860`
 
-✅ Success message: `🚀 Unified backend → http://0.0.0.0:7860`
-
-> Reads `backend/.env` automatically for `GROQ_API_KEY`. Without it, ML still works and the AI panel shows "unavailable".
-
----
-
-#### ⚛️ Terminal 2 — React Frontend *(Run this SECOND)*
-
+**⚛️ Terminal 2 — React Frontend**
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-
-✅ Success message: `Local: http://localhost:5173`
-
----
-
-### Step 5 — Open the App
-
-Open your browser and go to:
-
-🔗 **[http://localhost:5173](http://localhost:5173)**
+✅ Open `http://localhost:5173`
 
 ---
 
 ## 🎯 How to Use
 
-1. **Select a Property** *(required)* — choose the chemical/physical property category
-2. **Select a Sub-property** *(required)* — pick the specific sub-property
-3. **Application Domain** *(optional)* — e.g. Gas separation, Catalysis, CO2 capture (pick a preset or type your own)
+1. **Property** *(required)* — choose the property category (thermodynamic, transport, structural/electronic, …)
+2. **Sub-property** *(required)* — pick the specific sub-property
+3. **Application Domain** *(optional)* — e.g. Gas separation, Catalysis, CO₂ capture (pick a preset or type your own)
 4. **System Type** *(optional)* — e.g. Ionic liquids, MOFs, Polymers (pick a preset or type your own)
-5. **Click Compare** — the system will return:
-   - ✅ Best recommended method (of COSMO-RS, DFT, MD)
-   - 📊 Confidence (probability) for all 3 methods
-   - 🤖 ML Model ranking
-   - 🧠 AI reasoning and validation
+5. **Compare ML vs AI** — returns the best method, a confidence for all three methods, the AI second opinion, and an agreement banner
 
-> ℹ Accuracy and cost levels are no longer required — the new text classifier infers the method directly from your description.
+> The model is a TF-IDF text classifier, so Application Domain and System Type are free text that add context; they are optional.
+
+---
+
+## ☁️ Deploy for Free (Vercel)
+
+Two Vercel projects created from **this one repository**:
+
+**Backend project**
+- Root Directory: `backend`
+- Framework Preset: **Other** (Flask auto-detected via `vercel.json`)
+- Environment Variable: `GROQ_API_KEY` = your Groq key
+
+**Frontend project**
+- Root Directory: `frontend`
+- Framework Preset: **Vite**
+- Environment Variable: `VITE_API_URL` = your backend URL (e.g. `https://mlcm-backend.vercel.app`)
+
+Push to `main` and both projects auto-deploy.
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-Browser (React · port 5173 / Vercel)
-         ↓
-Python Backend (Flask · port 7860 / Hugging Face)
-    ↙               ↘
-ML Text Classifier   Groq AI API
-(Complement NB)      (GPT-OSS 120B)
-    ↘               ↙
-     Combined Result
-     + Side-by-side Comparison
-```
-
----
-
-## 🔧 Troubleshooting
-
-| Problem | Solution |
-|---------|----------|
-| `Port 7860 already in use` | Close the previous `python app.py` terminal, or set another `PORT` |
-| `pip install` fails | Try: `pip install flask flask-cors scikit-learn numpy joblib groq python-dotenv` |
-| `GROQ_API_KEY` error | Make sure `.env` file exists inside `backend/` folder with a valid key |
-| AI panel shows "unavailable" | Missing/invalid Groq key — ML still works; check `.env` (see Step 3) |
-| ML model not found | Make sure `backend/ml_model/production_chemistry_classifier.pkl` exists |
-| CORS / connection error | Make sure both services run (backend port 7860, frontend port 5173) and `VITE_API_URL` is correct |
-| AI returns no result | Check your Groq API key is valid at [console.groq.com](https://console.groq.com) |
-
----
-
-## 📁 Project Structure
-
-```
-MLCheM-Selector/
-├── backend/                    # Unified Python backend (deploy to Hugging Face)
-│   ├── ml_model/
-│   │   ├── production_chemistry_classifier.pkl   # ← ACTIVE model (TF-IDF + Complement NB)
-│   │   └── model_metadata.json
-│   ├── app.py                  # ML classifier + Groq AI + comparison (Flask)
-│   ├── Dockerfile              # Hugging Face Space (Docker) config
-│   ├── requirements.txt        # Python dependencies
-│   ├── README.md               # HF Space metadata
-│   └── .env                    # ⚠️ Create this yourself (see Step 3)
-├── frontend/                   # React app (deploy to Vercel)
-│   ├── src/
-│   │   └── App.jsx             # Main React application
-│   ├── index.html
-│   └── package.json
-├── Model/                      # Training pipeline (reproducibility)
-│   ├── Dataset.xlsx            # ⚠️ real literature dataset (add this)
-│   ├── train.py                # reproduces the model + Table/metrics
-│   ├── Model_MLchemTools.ipynb # exploratory training notebook
-│   └── requirements.txt
-├── PANDUAN_DEPLOY.md           # step-by-step free hosting guide
-├── REPRODUCIBILITY.md          # how to reproduce the ML results
-├── LICENSE
-└── README.md
+Browser (React · Vercel)
+         │  POST /evaluate
+         ▼
+Python Backend (Flask · Vercel serverless)
+    ┌──────────────┬───────────────┐
+    ▼              ▼
+ML Classifier   Groq AI API
+(Complement NB) (GPT-OSS 120B)
+    └──────────────┴───────────────┘
+         ▼
+   Combined result + side-by-side comparison
 ```
 
 ---
@@ -218,14 +144,84 @@ MLCheM-Selector/
 
 | Info | Details |
 |------|---------|
-| Algorithm | TF-IDF (1–2 grams) + Complement Naive Bayes |
-| Training Rows | 323 literature rows (grouped by paper, leak-proof split) |
-| Input Features | `property . sub_property . application_domain . system_type` (raw text) |
-| Output | Probability per method (COSMO-RS, DFT, MD) |
-| Classes | 3 methods — COSMO-RS, DFT, MD |
-| Bundle | `production_chemistry_classifier.pkl` → `{pipeline, label_encoder, model_name}` |
-| Data Source | Dataset.xlsx (peer-reviewed CC engineering literature) |
+| Algorithm | TF-IDF (1–2 grams, 1500 features) + Complement Naive Bayes (α = 0.5) |
+| Task | Single-label classification |
+| Training data | **323 records from real published studies** (labels = primary method reported) |
+| Class distribution | DFT 143 · MD 103 · COSMO-RS 77 |
+| Input features | `property · sub_property · application_domain · system_type` (raw text) |
+| Validation | Leak-proof, paper-grouped split (train 273 / test 50); TF-IDF fitted on train only |
+| Held-out accuracy | **88.0%** (macro-F1 **0.877**) |
+| Baseline (Zero-R) | 44.3% → **+43.7 points** |
 
-> The model file is a scikit-learn Pipeline. To swap in a retrained model later, just replace
-> `backend/ml_model/production_chemistry_classifier.pkl` (keep the same bundle keys) — no code changes needed.
+Per-method (held-out test, n=50):
 
+| Method | Precision | Recall | F1 | Support |
+|--------|-----------|--------|----|---------|
+| COSMO-RS | 0.80 | 0.92 | 0.86 | 13 |
+| DFT | 1.00 | 0.82 | 0.90 | 22 |
+| MD | 0.82 | 0.93 | 0.88 | 15 |
+
+### AI validation component
+
+Optional and non-authoritative. Groq-hosted `openai/gpt-oss-120b`, temperature 0.1, JSON output, **prompt-grounded** on the same method profiles (no external retrieval). Shown side by side; it does not modify the ML recommendation and is excluded from the quantitative evaluation because LLM outputs are non-deterministic.
+
+---
+
+## 🔬 Reproducibility
+
+The dataset, training script, and evaluation are provided (see [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md)):
+
+```bash
+cd Model
+pip install -r requirements.txt
+python train.py
+```
+
+Regenerates the model, `classification_report.txt`, `confusion_matrix.png`, and `metrics_summary.json` from `Dataset.xlsx`.
+
+---
+
+## 📁 Project Structure
+
+```
+MLCM-Selector/
+├── backend/                    # Python backend (Vercel)
+│   ├── api/index.py            # Vercel serverless entry (WSGI)
+│   ├── app.py                  # ML classifier + Groq AI + comparison (Flask)
+│   ├── vercel.json             # Vercel config
+│   ├── requirements.txt
+│   ├── ml_model/
+│   │   ├── production_chemistry_classifier.pkl   # active model
+│   │   └── model_metadata.json
+│   └── .env                    # ⚠️ create yourself (not committed)
+├── frontend/                   # React app (Vercel)
+│   └── src/App.jsx
+├── Model/                      # Training / reproducibility
+│   ├── Dataset.xlsx            # real literature dataset
+│   ├── train.py
+│   ├── Model_MLchemTools.ipynb
+│   └── requirements.txt
+├── REPRODUCIBILITY.md
+├── LICENSE
+└── README.md
+```
+
+---
+
+## 🔧 Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| Frontend "Connection error" | Check `VITE_API_URL` (no trailing `/`) and redeploy the frontend |
+| AI panel "unavailable" | `GROQ_API_KEY` missing/invalid — ML still works; set the key and redeploy |
+| `Port 7860 already in use` | Close the previous `python app.py`, or set another `PORT` |
+| ML model not found | Ensure `backend/ml_model/production_chemistry_classifier.pkl` exists |
+| First request slow | Serverless cold start — retry after a few seconds |
+
+---
+
+## 📜 License
+
+Released under the MIT License — see [`LICENSE`](LICENSE).
+
+**Repository:** https://github.com/ibrahimrasyid/MLCM-Selector
