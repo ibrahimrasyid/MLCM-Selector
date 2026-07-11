@@ -31,9 +31,9 @@ Request body for `/evaluate`:
 
 ## Configuration (Space → Settings → Variables and secrets)
 
-| Name | Type | Required | Notes |
-|------|------|----------|-------|
-| `GROQ_API_KEY` | Secret | Yes (for AI) | From console.groq.com |
-| `GROQ_MODEL`   | Variable | No | Defaults to `openai/gpt-oss-120b` |
+| Name           | Type     | Required      | Notes                             |
+|------          |------    |----------     |-------                            |
+| `GROQ_API_KEY` | Secret   | Yes (for AI)  | From console.groq.com             |
+| `GROQ_MODEL`   | Variable | No            | Defaults to `openai/gpt-oss-120b` |
 
 Without `GROQ_API_KEY` the ML engine still works; the AI panel shows "unavailable".
