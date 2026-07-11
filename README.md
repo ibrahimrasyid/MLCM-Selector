@@ -150,7 +150,7 @@ Optional and non-authoritative. Groq-hosted `openai/gpt-oss-120b`, temperature 0
 
 ## 🔬 Reproducibility
 
-The dataset, training script, and evaluation are provided (see [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md)):
+The dataset, training script, and evaluation are provided:
 
 ```bash
 cd Model
@@ -167,7 +167,7 @@ Regenerates the model, `classification_report.txt`, `confusion_matrix.png`, and 
 ```
 MLCM-Selector/
 ├── backend/                    # Python backend (Vercel)
-│   ├── api/index.py            # Vercel serverless entry (WSGI)
+│   ├── api/index.py            # Vercel entry (WSGI)
 │   ├── app.py                  # ML classifier + Groq AI + comparison (Flask)
 │   ├── vercel.json             # Vercel config
 │   ├── requirements.txt
@@ -182,8 +182,7 @@ MLCM-Selector/
 │   ├── train.py
 │   ├── Model_MLchemTools.ipynb
 │   └── requirements.txt
-├── REPRODUCIBILITY.md
-├── LICENSE
+│
 └── README.md
 ```
 
@@ -203,6 +202,6 @@ MLCM-Selector/
 
 ## 📜 License
 
-Released under the MIT License — see [`LICENSE`](LICENSE).
+Released under the MIT License
 
 **Repository:** https://github.com/ibrahimrasyid/MLCM-Selector
