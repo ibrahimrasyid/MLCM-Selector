@@ -110,7 +110,7 @@ npm run dev
 Browser (React · Vercel)
          │  POST /evaluate
          ▼
-Python Backend (Flask · Vercel serverless)
+Python Backend (Flask)
     ┌──────────────┬───────────────┐
     ▼              ▼
 ML Classifier   Groq AI API
