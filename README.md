@@ -13,7 +13,7 @@
 
 > **Just want to try it? No installation needed!**
 
-🔗 **[https://cc-tool-upgrade.vercel.app](https://cc-tool-upgrade.vercel.app)**
+🔗 **https://mlcm-selector.vercel.app/**
 
 ---
 
