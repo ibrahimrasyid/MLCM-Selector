@@ -1,6 +1,6 @@
 # 🧪 CC Tool Evaluation System
 ### Computational Chemistry Method Decision Support System
-> Hybrid ML + AI — TF-IDF Text Classifier (Complement NB) × LLaMA 3.1 8B (Groq)
+> Hybrid ML + AI — TF-IDF Text Classifier (Complement NB) × GPT-OSS 120B (Groq)
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
@@ -22,7 +22,7 @@
 **CC Tool Evaluation System** helps researchers and engineers select the most suitable computational chemistry method for their study. Describe your problem with four text inputs — property, sub-property, application domain, and system type — and the system recommends the best method using two engines running in parallel:
 
 1. 🤖 **ML Text Classifier** — TF-IDF + Complement Naive Bayes trained on 323 rows of literature
-2. 🧠 **LLaMA 3.1 8B via Groq** — AI validation grounded in peer-reviewed literature
+2. 🧠 **GPT-OSS 120B via Groq** — AI validation grounded in peer-reviewed literature
 
 ### Supported Methods
 
@@ -61,7 +61,7 @@ cd cc-tool-upgrade
 
 ### Step 2 — Get Your Free Groq API Key
 
-This project uses **Groq API** to run the LLaMA 3.1 8B AI model for free.
+This project uses **Groq API** to run the GPT-OSS 120B AI model for free.
 
 1. Go to [console.groq.com](https://console.groq.com) and create a free account
 2. Navigate to **API Keys** in the sidebar

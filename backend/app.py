@@ -2,7 +2,7 @@
 CC Tool Evaluation System — Unified Backend (ML + AI in one Python service)
 
 Engine 1 (ML) : TF-IDF + Complement Naive Bayes  -> COSMO-RS / DFT / MD
-Engine 2 (AI) : Groq LLaMA/GPT-OSS validation, grounded in domain knowledge
+Engine 2 (AI) : Groq GPT-OSS 120B validation, grounded in domain knowledge
 
 This single service replaces the old server.js (Node) + ml_service.py split,
 so it is easy to host on ONE free backend (e.g. a Hugging Face Space).
