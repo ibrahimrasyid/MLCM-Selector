@@ -206,7 +206,7 @@ MLCM-Selector/
 
 If you use this software or dataset, please cite the archived release:
 
-> Rasyid, M. I. (2026). *MLCheM Selector — Machine Learning-based Computational Chemistry Method Selector* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.21317507
+> Rasyid, M. I., Suharlan, K. Z., Latif, R. A., & Rosalina, R. (2026). *MLCheM Selector — Machine Learning-based Computational Chemistry Method Selector* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.21317507
 
 DOI: [10.5281/zenodo.21317507](https://doi.org/10.5281/zenodo.21317507) · citation metadata in `CITATION.cff`.
 
