@@ -37,13 +37,8 @@ authors:
   - family-names: Rasyid
     given-names: Muhammad Ibrahim
 
-# ─────────────────────────────────────────────────────────────────────────────
-# AFTER Zenodo mints the DOI, uncomment the block below and paste the DOI value,
-# then commit & push (or add it to the next release). Also add the DOI to README.
-#
-# identifiers:
-#   - type: doi
-#     value: 10.5281/zenodo.XXXXXXX
-#     description: "Zenodo archive of this repository"
-# doi: 10.5281/zenodo.XXXXXXX
-# ─────────────────────────────────────────────────────────────────────────────
+doi: 10.5281/zenodo.21317507
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21317507
+    description: "Zenodo archive of this repository (v1.0.0)"

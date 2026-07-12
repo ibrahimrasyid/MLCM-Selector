@@ -7,6 +7,8 @@
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21317507.svg)](https://doi.org/10.5281/zenodo.21317507)
+
 ---
 
 ## 🌐 Live Demo
@@ -200,8 +202,18 @@ MLCM-Selector/
 
 ---
 
+## 📚 Citation
+
+If you use this software or dataset, please cite the archived release:
+
+> Rasyid, M. I. (2026). *MLCheM Selector — Machine Learning-based Computational Chemistry Method Selector* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.21317507
+
+DOI: [10.5281/zenodo.21317507](https://doi.org/10.5281/zenodo.21317507) · citation metadata in `CITATION.cff`.
+
+---
+
 ## 📜 License
 
-Released under the MIT License
+Released under the MIT License (see `LICENSE`).
 
 **Repository:** https://github.com/ibrahimrasyid/MLCM-Selector
