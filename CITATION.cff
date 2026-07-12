@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+title: "MLCheM Selector — Machine Learning-based Computational Chemistry Method Selector"
+message: "If you use this software or dataset, please cite it as below."
+type: software
+version: 1.0.0
+date-released: 2026-07-11
+license: MIT
+repository-code: "https://github.com/ibrahimrasyid/MLCM-Selector"
+url: "https://mlcm-selector.vercel.app"
+abstract: >-
+  MLCheM Selector is a machine-learning decision-support tool that recommends a
+  computational chemistry method — COSMO-RS, Density Functional Theory (DFT), or
+  Molecular Dynamics (MD) — from a short textual description of a target calculation
+  (property, sub-property, application domain, and system type). The classifier
+  (TF-IDF features with a Complement Naive-Bayes model) is trained on 323 records
+  manually curated from peer-reviewed computational chemistry publications, using the
+  primary method reported in each study as the ground-truth label rather than
+  author-defined heuristics or synthetic rules. It is evaluated with a leak-proof,
+  publication-grouped held-out split (accuracy 0.880, macro-F1 0.877) and is paired
+  with an optional large-language-model second opinion for interpretability. The
+  repository provides the dataset, preprocessing and training scripts, the trained
+  model, a pinned software environment, and a fully reproducible pipeline.
+keywords:
+  - computational chemistry
+  - method selection
+  - method recommendation
+  - machine learning
+  - text classification
+  - TF-IDF
+  - Complement Naive Bayes
+  - decision support
+  - density functional theory
+  - molecular dynamics
+  - COSMO-RS
+  - reproducible research
+authors:
+  - family-names: Rasyid
+    given-names: Muhammad Ibrahim
+
+# ─────────────────────────────────────────────────────────────────────────────
+# AFTER Zenodo mints the DOI, uncomment the block below and paste the DOI value,
+# then commit & push (or add it to the next release). Also add the DOI to README.
+#
+# identifiers:
+#   - type: doi
+#     value: 10.5281/zenodo.XXXXXXX
+#     description: "Zenodo archive of this repository"
+# doi: 10.5281/zenodo.XXXXXXX
+# ─────────────────────────────────────────────────────────────────────────────
