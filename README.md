@@ -6,7 +6,6 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 ---
 
@@ -104,31 +103,13 @@ npm run dev
 
 ---
 
-## ☁️ Deploy for Free (Vercel)
-
-Two Vercel projects created from **this one repository**:
-
-**Backend project**
-- Root Directory: `backend`
-- Framework Preset: **Other** (Flask auto-detected via `vercel.json`)
-- Environment Variable: `GROQ_API_KEY` = your Groq key
-
-**Frontend project**
-- Root Directory: `frontend`
-- Framework Preset: **Vite**
-- Environment Variable: `VITE_API_URL` = your backend URL (e.g. `https://mlcm-backend.vercel.app`)
-
-Push to `main` and both projects auto-deploy.
-
----
-
 ## 🏗️ Architecture
 
 ```
 Browser (React · Vercel)
          │  POST /evaluate
          ▼
-Python Backend (Flask · Vercel serverless)
+Python Backend (Flask)
     ┌──────────────┬───────────────┐
     ▼              ▼
 ML Classifier   Groq AI API
@@ -169,7 +150,7 @@ Optional and non-authoritative. Groq-hosted `openai/gpt-oss-120b`, temperature 0
 
 ## 🔬 Reproducibility
 
-The dataset, training script, and evaluation are provided (see [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md)):
+The dataset, training script, and evaluation are provided:
 
 ```bash
 cd Model
@@ -186,7 +167,7 @@ Regenerates the model, `classification_report.txt`, `confusion_matrix.png`, and 
 ```
 MLCM-Selector/
 ├── backend/                    # Python backend (Vercel)
-│   ├── api/index.py            # Vercel serverless entry (WSGI)
+│   ├── api/index.py            # Vercel entry (WSGI)
 │   ├── app.py                  # ML classifier + Groq AI + comparison (Flask)
 │   ├── vercel.json             # Vercel config
 │   ├── requirements.txt
@@ -201,8 +182,7 @@ MLCM-Selector/
 │   ├── train.py
 │   ├── Model_MLchemTools.ipynb
 │   └── requirements.txt
-├── REPRODUCIBILITY.md
-├── LICENSE
+│
 └── README.md
 ```
 
@@ -222,6 +202,6 @@ MLCM-Selector/
 
 ## 📜 License
 
-Released under the MIT License — see [`LICENSE`](LICENSE).
+Released under the MIT License
 
 **Repository:** https://github.com/ibrahimrasyid/MLCM-Selector
