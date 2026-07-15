@@ -7,7 +7,7 @@
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21317507.svg)](https://doi.org/10.5281/zenodo.21317507)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21369531.svg)](https://doi.org/10.5281/zenodo.21369531)
 
 ---
 
@@ -206,9 +206,9 @@ MLCM-Selector/
 
 If you use this software or dataset, please cite the archived release:
 
-> Rasyid, M. I., Suharlan, K. Z., Latif, R. A., & Rosalina, R. (2026). *MLCheM Selector — Machine Learning-based Computational Chemistry Method Selector* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.21317507
+> Rasyid, M. I., Suharlan, K. Z., Latif, R. A., & Rosalina, R. (2026). *MLCheM Selector — Machine Learning-based Computational Chemistry Method Selector* (v1.1.0). Zenodo. https://doi.org/10.5281/zenodo.21369531
 
-DOI: [10.5281/zenodo.21317507](https://doi.org/10.5281/zenodo.21317507) · citation metadata in `CITATION.cff`.
+DOI: [10.5281/zenodo.21369531](https://doi.org/10.5281/zenodo.21369531) · citation metadata in `CITATION.cff`.
 
 ---
 

@@ -43,8 +43,8 @@ authors:
   - family-names: Rosalina
     given-names: Rosalina
 
-doi: 10.5281/zenodo.21317507
+doi: 10.5281/zenodo.21369531
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.21317507
-    description: "Zenodo archive of this repository (v1.0.0)"
+    value: 10.5281/zenodo.21369531
+    description: "Zenodo archive of this repository (v1.1.0)"
