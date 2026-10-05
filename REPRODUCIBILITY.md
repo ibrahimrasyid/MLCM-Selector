@@ -1,6 +1,6 @@
 # Reproducibility Guide — MLCheM Selector
 
-**Version:** 1.0.0 · **License:** MIT (see `LICENSE`) · **Citation:** see `CITATION.cff`
+**Version:** 1.1.1 · **License:** MIT (see `LICENSE`) · **Citation:** see `CITATION.cff`
 
 ---
 
@@ -197,7 +197,7 @@ The accompanying reproducibility package includes:
 - `LICENSE` — MIT License.
 - `CITATION.cff` — citation metadata and version information.
 
-All machine learning experiments reported in the manuscript can be reproduced by executing the provided training script using the supplied dataset and software environment. The repository has been designed to support independent verification of the reported results and will be archived with a citable DOI (e.g., Zenodo) upon publication to ensure long-term accessibility and version preservation.
+All machine learning experiments reported in the manuscript can be reproduced by executing the provided training script using the supplied dataset and software environment. The repository has been designed to support independent verification of the reported results and is archived on Zenodo with a citable DOI ([10.5281/zenodo.21317506](https://doi.org/10.5281/zenodo.21317506), which always resolves to the latest release) to ensure long-term accessibility and version preservation.
 
 ## 14. Reproducibility Checklist
 
@@ -214,11 +214,11 @@ All machine learning experiments reported in the manuscript can be reproduced by
 | Baseline comparisons | Yes (Zero-R and rule-based) |
 | Worked example cases | Yes (Section 9) |
 | Open-source license | Yes (MIT) |
-| Version information | Yes (`CITATION.cff`, v1.0.0) |
-| Citable DOI | Pending — Zenodo archival upon publication |
+| Version information | Yes (`CITATION.cff`, v1.1.1) |
+| Citable DOI | Yes — Zenodo, [10.5281/zenodo.21317506](https://doi.org/10.5281/zenodo.21317506) (all versions) |
 
 ## 15. License & Citation
 
-Released under the **MIT License** (`LICENSE`), version **1.0.0**. Citation metadata is
-provided in `CITATION.cff`; please cite the repository (and, once minted, the Zenodo DOI)
+Released under the **MIT License** (`LICENSE`), version **1.1.1**. Citation metadata is
+provided in `CITATION.cff`; please cite the Zenodo archive (DOI [10.5281/zenodo.21317506](https://doi.org/10.5281/zenodo.21317506))
 when using this software or dataset.
