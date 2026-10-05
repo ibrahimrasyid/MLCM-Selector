@@ -2,8 +2,8 @@ cff-version: 1.2.0
 title: "MLCheM Selector — Machine Learning-based Computational Chemistry Method Selector"
 message: "If you use this software or dataset, please cite it as below."
 type: software
-version: 1.1.0
-date-released: 2026-07-14
+version: 1.1.1
+date-released: 2026-10-06
 license: MIT
 repository-code: "https://github.com/ibrahimrasyid/MLCM-Selector"
 url: "https://mlcm-selector.vercel.app"
@@ -43,8 +43,11 @@ authors:
   - family-names: Rosalina
     given-names: Rosalina
 
-doi: 10.5281/zenodo.21369531
+doi: 10.5281/zenodo.21317506
 identifiers:
   - type: doi
+    value: 10.5281/zenodo.21317506
+    description: "Zenodo archive of this repository (all versions; resolves to the latest release)"
+  - type: doi
     value: 10.5281/zenodo.21369531
-    description: "Zenodo archive of this repository (v1.1.0)"
+    description: "Zenodo archive of release v1.1.0"
