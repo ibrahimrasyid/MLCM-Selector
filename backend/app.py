@@ -1,10 +1,12 @@
 """
-CC Tool Evaluation System — Unified Backend (ML + AI in one Python service)
+MLCheM Selector — Unified Backend (ML + AI-Assisted Explanation)
 
-Engine 1 (ML) : TF-IDF + Complement Naive Bayes  -> COSMO-RS / DFT / MD
-Engine 2 (AI) : Groq GPT-OSS 120B validation, grounded in domain knowledge
+Engine 1 (ML)  : TF-IDF + Complement Naive Bayes  -> classification result
+Engine 2 (AI)  : AI-Assisted Explanation via GPT-OSS 120B, grounded in domain knowledge
 
-A single Python service (ML classifier + optional LLM validation) so it is
+Flow: User Input → ML Classifier → Recommended Method → AI-Assisted Explanation
+
+A single Python service (ML classifier + optional LLM explanation) so it is
 easy to host on ONE free backend (e.g. a Hugging Face Space).
 
 Run locally:  python app.py   ->  http://localhost:7860
@@ -103,7 +105,7 @@ def ml_predict(prop, sub, domain, system):
     }
 
 
-# ── Engine 2: AI validation via Groq ────────────────────────────────────────
+# ── Engine 2: AI-Assisted Explanation via GPT-OSS 120B ──────────────────────
 _groq_client = None
 def get_groq():
     global _groq_client
@@ -122,7 +124,7 @@ def ai_predict(prop, sub, domain, system, ml_top3):
         ml_context = "\nML Model ranking (for your reference): " + ", ".join(
             f"{m['method']} ({m['conf_pct']}%)" for m in ml_top3)
 
-    prompt = f"""You are an expert computational chemist acting as a scientific validator.
+    prompt = f"""You are an expert computational chemist providing an AI-Assisted Explanation.
 
 You have been given the following domain knowledge from peer-reviewed literature:
 
@@ -136,13 +138,14 @@ A researcher has submitted this query:
 {ml_context}
 
 Your task:
-1. Using the domain knowledge above as your PRIMARY reference, decide which of the 3
-   methods is most appropriate for this property / sub-property / domain / system.
+1. Using the domain knowledge above as your PRIMARY reference, explain why the
+   ML-recommended method is appropriate (or suggest a better fit if the domain
+   knowledge clearly indicates otherwise).
 2. Assign each method a confidence score from 0 to 100 (higher = more suitable).
    The three scores do NOT need to sum to 100 — judge each method on its own merit.
    IMPORTANT: each score MUST be a plain integer number like 85 — never spell it out as a word.
-3. If the ML model ranking aligns with domain knowledge, affirm it. If it differs,
-   briefly explain why the domain knowledge supports a different choice.
+3. Provide a clear, educational explanation that helps the researcher understand
+   the reasoning behind the recommendation.
 
 Available methods (ONLY these 3): {method_list}
 
@@ -192,7 +195,7 @@ Return ONLY valid JSON, no markdown, no extra text:
     }
 
 
-# ── Comparison of the two engines ───────────────────────────────────────────
+# ── ML Recommendation & AI Explanation comparison ───────────────────────────
 def build_comparison(ml, ai):
     ml_ok, ai_ok = ml.get("available"), ai.get("available")
     if not ml_ok and not ai_ok:
@@ -208,11 +211,11 @@ def build_comparison(ml, ai):
     if not ml_ok or not ai_ok:
         color, level = "amber", "Partial Results (one engine unavailable)"
     elif agree:
-        color, level = "green", "Strong Agreement — Both engines agree on the best method"
+        color, level = "green", "Strong Agreement — ML classification and AI explanation align"
     elif len(overlap) >= 2:
         color, level = "amber", "Moderate Agreement — Similar ranking"
     else:
-        color, level = "red", "Low Agreement — Engines suggest different methods"
+        color, level = "red", "Low Agreement — AI explanation suggests a different method"
 
     method_diffs = []
     for method in METHOD_ABBRS:
@@ -238,9 +241,9 @@ def build_comparison(ml, ai):
 @app.route("/", methods=["GET"])
 def health():
     return jsonify({
-        "status": "Unified backend running 🚀",
+        "status": "MLCheM Selector backend running 🚀",
         "ml_model": MODEL_NAME, "methods": CLASSES,
-        "ai_model": GROQ_MODEL, "ai_configured": bool(GROQ_KEY),
+        "ai_explanation_model": GROQ_MODEL, "ai_configured": bool(GROQ_KEY),
     })
 
 
@@ -272,7 +275,7 @@ def evaluate():
     except Exception as e:
         ml = {"available": False, "error": f"ML error: {e}"}
 
-    # Engine 2: AI (pass ML ranking as context)
+    # Engine 2: AI-Assisted Explanation (pass ML ranking as context)
     ml_top3 = ml.get("top3", []) if ml.get("available") else []
     try:
         ai = ai_predict(prop, sub, domain, system, ml_top3)

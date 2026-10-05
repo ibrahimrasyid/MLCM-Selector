@@ -4,34 +4,34 @@ import axios from "axios";
 // ── Property taxonomy (dropdowns) ─────────────────────────────────────────────
 // 10-category taxonomy — aligned 1:1 with the notebook TAXONOMY (Model_MLchemTools.ipynb, cell 9)
 const PROPERTIES = {
-  "THERMODYNAMIC PROPERTIES": ["Gibbs free energy","Enthalpy","Entropy","Heat capacity","Solubility","Phase equilibria","Henry's constant","Activity coefficient","Fugacity / chemical potential","Free energy of mixing","Solvation free energy"],
-  "KINETIC & REACTION PROPERTIES": ["Reaction mechanism","Activation energy","Transition state","Reaction rate","Reaction pathway","Catalytic activity","Bond breaking","Bond formation","Decomposition mechanism","Degradation mechanism","Reaction kinetics"],
-  "TRANSPORT PROPERTIES": ["Diffusivity","Diffusion","Permeability","Viscosity","Thermal conductivity","Mass transfer coefficient","Ionic conductivity","Ion transport"],
-  "STRUCTURAL & ELECTRONIC PROPERTIES": ["Molecular geometry","Bond length","Bond angle","Electronic structure","Band gap","Density of states","Charge distribution","Surface structure","Crystal structure","Lattice parameters","Amorphous structure","Structural stability","Structural assignment","Regioisomer"],
-  "MOLECULAR INTERACTION PROPERTIES": ["Binding energy","Adsorption energy","Adsorption mechanism","Adsorption behavior","Intermolecular forces","Hydrogen bonding","Van der Waals interactions","Electrostatic interactions","Solute–solvent interaction","Host–guest interaction","Non-covalent interactions","Force field parameterization","Drug–nanocarrier interaction","Drug–micelle interaction","Metal–ligand interaction","Interfacial adhesion","Protein–nanoparticle interaction","Protein–metal interaction"],
-  "ADSORPTION & POROUS MEDIA PROPERTIES": ["Adsorption isotherms","Adsorption capacity","Adsorption selectivity","Competitive adsorption","Pore filling behavior","Surface coverage","Gas adsorption","Gas sensing"],
-  "MULTICOMPONENT & PROCESS-LEVEL PROPERTIES": ["Mixture selectivity","Phase behavior of mixtures","Process thermodynamics","Scale-up prediction","Coupled transport–reaction","Extraction","Separation","Screening"],
-  "BIOMEDICAL & BIOCHEMICAL PROPERTIES": ["Drug–protein interaction","Protein–ligand interaction","Conformational change","Enzyme reaction mechanism","Docking scoring","Biomolecular stability","Molecular docking","Protein extraction","Biointerface"],
-  "ENERGY & ENVIRONMENTAL PROPERTIES": ["Gas separation selectivity","CO₂ absorption capacity","H₂S removal efficiency","Membrane performance","Electrochemical properties","Battery material properties","Hydrogen storage","Photocatalytic activity","Catalytic performance","Water desalination","Salt rejection"],
-  "OPTICAL & SPECTROSCOPIC PROPERTIES": ["Optical properties","Nonlinear optical (NLO) properties","Photophysical properties","Dielectric relaxation","Spectral fingerprint","Vibrational spectra","Charge transfer","Intramolecular charge transfer (ICT)","Chiroptical properties","Excited-state proton transfer (ESIPT)","Optical limiting","Fluorescence","Absorption spectra","Raman spectra","Infrared (IR) spectra","UV–Vis spectroscopy"],
+  "THERMODYNAMIC PROPERTIES": ["Gibbs free energy", "Enthalpy", "Entropy", "Heat capacity", "Solubility", "Phase equilibria", "Henry's constant", "Activity coefficient", "Fugacity / chemical potential", "Free energy of mixing", "Solvation free energy"],
+  "KINETIC & REACTION PROPERTIES": ["Reaction mechanism", "Activation energy", "Transition state", "Reaction rate", "Reaction pathway", "Catalytic activity", "Bond breaking", "Bond formation", "Decomposition mechanism", "Degradation mechanism", "Reaction kinetics"],
+  "TRANSPORT PROPERTIES": ["Diffusivity", "Diffusion", "Permeability", "Viscosity", "Thermal conductivity", "Mass transfer coefficient", "Ionic conductivity", "Ion transport"],
+  "STRUCTURAL & ELECTRONIC PROPERTIES": ["Molecular geometry", "Bond length", "Bond angle", "Electronic structure", "Band gap", "Density of states", "Charge distribution", "Surface structure", "Crystal structure", "Lattice parameters", "Amorphous structure", "Structural stability", "Structural assignment", "Regioisomer"],
+  "MOLECULAR INTERACTION PROPERTIES": ["Binding energy", "Adsorption energy", "Adsorption mechanism", "Adsorption behavior", "Intermolecular forces", "Hydrogen bonding", "Van der Waals interactions", "Electrostatic interactions", "Solute–solvent interaction", "Host–guest interaction", "Non-covalent interactions", "Force field parameterization", "Drug–nanocarrier interaction", "Drug–micelle interaction", "Metal–ligand interaction", "Interfacial adhesion", "Protein–nanoparticle interaction", "Protein–metal interaction"],
+  "ADSORPTION & POROUS MEDIA PROPERTIES": ["Adsorption isotherms", "Adsorption capacity", "Adsorption selectivity", "Competitive adsorption", "Pore filling behavior", "Surface coverage", "Gas adsorption", "Gas sensing"],
+  "MULTICOMPONENT & PROCESS-LEVEL PROPERTIES": ["Mixture selectivity", "Phase behavior of mixtures", "Process thermodynamics", "Scale-up prediction", "Coupled transport–reaction", "Extraction", "Separation", "Screening"],
+  "BIOMEDICAL & BIOCHEMICAL PROPERTIES": ["Drug–protein interaction", "Protein–ligand interaction", "Conformational change", "Enzyme reaction mechanism", "Docking scoring", "Biomolecular stability", "Molecular docking", "Protein extraction", "Biointerface"],
+  "ENERGY & ENVIRONMENTAL PROPERTIES": ["Gas separation selectivity", "CO₂ absorption capacity", "H₂S removal efficiency", "Membrane performance", "Electrochemical properties", "Battery material properties", "Hydrogen storage", "Photocatalytic activity", "Catalytic performance", "Water desalination", "Salt rejection"],
+  "OPTICAL & SPECTROSCOPIC PROPERTIES": ["Optical properties", "Nonlinear optical (NLO) properties", "Photophysical properties", "Dielectric relaxation", "Spectral fingerprint", "Vibrational spectra", "Charge transfer", "Intramolecular charge transfer (ICT)", "Chiroptical properties", "Excited-state proton transfer (ESIPT)", "Optical limiting", "Fluorescence", "Absorption spectra", "Raman spectra", "Infrared (IR) spectra", "UV–Vis spectroscopy"],
 };
 
 const APPLICATION_DOMAINS = [
-  "Gas separation","CO2 capture","Carbon capture & storage","Catalysis","Heterogeneous catalysis",
-  "Battery / energy storage","Fuel cells","Drug design / pharmaceuticals","Water treatment",
-  "Membrane separation","Adsorption / porous materials","Corrosion","Polymer engineering",
-  "Solvent design / screening","Electrochemistry","Biomolecular / enzyme systems",
-  "Hydrogen storage","Distillation / extraction","Environmental remediation",
+  "Gas separation", "CO2 capture", "Carbon capture & storage", "Catalysis", "Heterogeneous catalysis",
+  "Battery / energy storage", "Fuel cells", "Drug design / pharmaceuticals", "Water treatment",
+  "Membrane separation", "Adsorption / porous materials", "Corrosion", "Polymer engineering",
+  "Solvent design / screening", "Electrochemistry", "Biomolecular / enzyme systems",
+  "Hydrogen storage", "Distillation / extraction", "Environmental remediation",
 ];
 const SYSTEM_TYPES = [
-  "Ionic liquids","Deep eutectic solvents","MOFs (Metal-organic frameworks)","Zeolites","Polymers",
-  "Aqueous solutions","Electrolytes","Proteins / enzymes","Nanomaterials","Metal surfaces / catalysts",
-  "Gas mixtures","Organic solvents","Membranes","2D materials","Molecular crystals","Semiconductors",
+  "Ionic liquids", "Deep eutectic solvents", "MOFs (Metal-organic frameworks)", "Zeolites", "Polymers",
+  "Aqueous solutions", "Electrolytes", "Proteins / enzymes", "Nanomaterials", "Metal surfaces / catalysts",
+  "Gas mixtures", "Organic solvents", "Membranes", "2D materials", "Molecular crystals", "Semiconductors",
 ];
 
 const ALL_METHODS = ["COSMO-RS", "DFT", "MD"];
 const METHOD_COLORS = { "COSMO-RS": "#0d9488", "DFT": "#4f46e5", "MD": "#ea580c" };
-const METHOD_ICON   = { "COSMO-RS": "◇", "DFT": "⬡", "MD": "◈" };
+const METHOD_ICON = { "COSMO-RS": "◇", "DFT": "⬡", "MD": "◈" };
 const RANK_STYLES = [
   { bg: "linear-gradient(135deg,#fde68a,#f59e0b)", fg: "#7c4a03" },
   { bg: "linear-gradient(135deg,#e5e7eb,#9ca3af)", fg: "#374151" },
@@ -56,17 +56,16 @@ function Gauge({ pct = 0, color = "#4f46e5", size = 132 }) {
 }
 
 // ── Verdict hero ──────────────────────────────────────────────────────────────
-function VerdictHero({ mlData, comparison }) {
+function VerdictHero({ mlData }) {
   if (!mlData?.available) return null;
   const best = mlData.all_methods[0];
   const color = METHOD_COLORS[best.method] || "#4f46e5";
-  const agreeColor = comparison?.agreementColor || "amber";
-  const pal = { green: ["#f0fdf4","#bbf7d0","#15803d","Both engines agree"], amber: ["#fffbeb","#fde68a","#b45309","Partial agreement"], red: ["#fef2f2","#fecaca","#b91c1c","Engines differ"] };
-  const [abg, abd, atx, alabel] = pal[agreeColor] || pal.amber;
   return (
-    <div style={{ position: "relative", overflow: "hidden", borderRadius: 20, marginBottom: 22,
+    <div style={{
+      position: "relative", overflow: "hidden", borderRadius: 20, marginBottom: 22,
       background: `linear-gradient(135deg,${color}0f, #ffffff 55%)`, border: `1px solid ${color}30`,
-      boxShadow: "0 14px 40px rgba(15,23,42,0.07)" }}>
+      boxShadow: "0 14px 40px rgba(15,23,42,0.07)"
+    }}>
       <div style={{ position: "absolute", top: -60, right: -60, width: 200, height: 200, borderRadius: "50%", background: color + "12" }} />
       <div style={{ position: "relative", display: "flex", alignItems: "center", gap: 26, padding: "24px 28px", flexWrap: "wrap" }}>
         <Gauge pct={best.conf_pct} color={color} />
@@ -77,13 +76,7 @@ function VerdictHero({ mlData, comparison }) {
             <span style={{ fontSize: 30, fontWeight: 800, letterSpacing: -0.5, color: "#0f172a" }}>{best.method}</span>
           </div>
           <div style={{ fontSize: 14, color: "#64748b", marginBottom: 14 }}>{best.fullName}</div>
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 13px", borderRadius: 20, background: abg, color: atx, border: `1px solid ${abd}`, fontSize: 12.5, fontWeight: 700 }}>
-              {agreeColor === "green" ? "✅" : agreeColor === "amber" ? "⚠️" : "🔀"} {alabel}
-            </span>
-            {comparison?.aiBest && <span style={chip("#7c3aed")}>AI's pick: {comparison.aiBest}</span>}
-            <span style={chip("#2563eb")}>Overlap {comparison?.overlapCount ?? 0}/3</span>
-          </div>
+
         </div>
       </div>
     </div>
@@ -95,8 +88,10 @@ function MethodRow({ item, best, tag }) {
   const pct = item.conf_pct ?? 0;
   const s = RANK_STYLES[item.rank - 1] || { bg: "#e2e8f0", fg: "#475569" };
   return (
-    <div style={{ border: `1px solid ${best ? color + "66" : "#e8edf3"}`, background: best ? color + "0d" : "#fff",
-      borderRadius: 14, padding: "13px 16px", boxShadow: best ? `0 4px 14px ${color}22` : "0 1px 2px rgba(15,23,42,0.04)", transition: "all .2s" }}>
+    <div style={{
+      border: `1px solid ${best ? color + "66" : "#e8edf3"}`, background: best ? color + "0d" : "#fff",
+      borderRadius: 14, padding: "13px 16px", boxShadow: best ? `0 4px 14px ${color}22` : "0 1px 2px rgba(15,23,42,0.04)", transition: "all .2s"
+    }}>
       <div style={{ display: "flex", alignItems: "center", gap: 11, marginBottom: 9 }}>
         <span style={{ width: 26, height: 26, borderRadius: "50%", flexShrink: 0, display: "inline-flex", alignItems: "center", justifyContent: "center", background: s.bg, color: s.fg, fontSize: 12, fontWeight: 800, boxShadow: "0 1px 2px rgba(0,0,0,0.15)" }}>{item.rank}</span>
         <span style={{ fontSize: 16, color, width: 18, textAlign: "center" }}>{METHOD_ICON[item.method]}</span>
@@ -121,10 +116,10 @@ function EnginePanel({ kind, data, comparison }) {
   const isML = kind === "ml";
   const accent = isML ? "#2563eb" : "#7c3aed";
   const icon = isML ? "🧮" : "✨";
-  const title = isML ? "ML Model" : "Groq AI";
-  const subtitle = isML ? (data?.model_name || "Complement Naive Bayes") : "GPT-OSS 120B · scientific validation";
+  const title = isML ? "ML Model - Classification Result" : "AI-Assisted Explanation";
+  const subtitle = isML ? (data?.model_name || "Complement Naive Bayes") : "GPT-OSS 120B · scientific explanation";
   const otherBest = isML ? comparison?.aiBest : comparison?.mlBest;
-  const otherTag = isML ? "AI's pick" : "ML's pick";
+  const otherTag = isML ? "AI pick" : "ML pick";
   return (
     <div style={{ background: "#fff", border: "1px solid #e8edf3", borderRadius: 18, padding: 18, boxShadow: "0 10px 30px rgba(15,23,42,0.05)" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 11, marginBottom: 14, paddingBottom: 12, borderBottom: "1px solid #f1f5f9" }}>
@@ -139,14 +134,14 @@ function EnginePanel({ kind, data, comparison }) {
           {data.all_methods.map((m, i) => <MethodRow key={m.method} item={m} best={i === 0} tag={m.method === otherBest ? otherTag : null} />)}
           {!isML && data.reasoning && (
             <div style={{ marginTop: 4, background: "#faf9ff", border: "1px solid #eee6ff", borderRadius: 12, padding: "12px 15px" }}>
-              <div style={{ fontSize: 10, letterSpacing: 1, color: "#8b5cf6", fontWeight: 700, marginBottom: 5 }}>AI REASONING</div>
+              <div style={{ fontSize: 10, letterSpacing: 1, color: "#8b5cf6", fontWeight: 700, marginBottom: 5 }}>AI EXPLANATION</div>
               <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.6, color: "#475569" }}>{data.reasoning}</p>
             </div>
           )}
         </div>
       ) : (
         <div style={{ padding: 16, background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 12, color: "#b91c1c", fontSize: 13 }}>
-          ⚠ {isML ? "ML service" : "AI"} unavailable: {data?.error}
+          ⚠ {isML ? "ML service" : "AI explanation"} unavailable: {data?.error}
         </div>
       )}
     </div>
@@ -237,11 +232,11 @@ export default function App() {
           <div style={{ width: 42, height: 42, borderRadius: 12, background: "linear-gradient(135deg,#4f46e5,#7c3aed)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 21, boxShadow: "0 6px 16px rgba(79,70,229,0.35)" }}>🧪</div>
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 17, fontWeight: 800, letterSpacing: -0.3 }}>MLCheM Selector</div>
-            <div style={{ fontSize: 11.5, color: "#94a3b8" }}>Computational chemistry method recommendation · ML vs AI</div>
+            <div style={{ fontSize: 11.5, color: "#94a3b8" }}>User Input → ML Classifier → Recommended Method → AI Explanation</div>
           </div>
           <div style={{ display: "flex", gap: 8 }}>
-            <span style={chip("#2563eb")}>🧮 ML Model</span>
-            <span style={chip("#7c3aed")}>✨ Groq AI</span>
+            <span style={chip("#2563eb")}>🧮 ML Classification</span>
+            <span style={chip("#7c3aed")}>✨ AI Explanation</span>
           </div>
         </div>
       </header>
@@ -289,8 +284,9 @@ export default function App() {
               flex: 1, padding: "14px 0", borderRadius: 13, border: "none", cursor: loading ? "not-allowed" : "pointer",
               background: loading ? "#c7d2fe" : "linear-gradient(135deg,#4f46e5,#7c3aed)", color: "#fff",
               fontSize: 14, fontWeight: 700, letterSpacing: .3, fontFamily: "inherit",
-              boxShadow: loading ? "none" : "0 8px 20px rgba(79,70,229,0.35)", transition: "all .2s" }}>
-              {loading ? "⟳  Running ML + AI…" : "▶  Compare ML vs AI"}
+              boxShadow: loading ? "none" : "0 8px 20px rgba(79,70,229,0.35)", transition: "all .2s"
+            }}>
+              {loading ? "⟳  Running ML + AI…" : "▶  ML Recommendation & AI Explanation"}
             </button>
             {data && <button onClick={reset} style={{ padding: "14px 22px", borderRadius: 13, background: "#fff", border: "1px solid #e2e8f0", color: "#64748b", fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>↺ Reset</button>}
           </div>
@@ -299,7 +295,7 @@ export default function App() {
         {/* Results */}
         {data && (
           <div style={{ animation: "fadeIn .45s ease" }}>
-            <VerdictHero mlData={data.ml} comparison={data.comparison} />
+            <VerdictHero mlData={data.ml} />
 
             <div style={{ display: "flex", gap: 8, marginBottom: 18 }}>
               {[{ key: "compare", label: "⚖ Ranking comparison" }, { key: "table", label: "📊 Full method table" }].map(t => (
@@ -307,28 +303,29 @@ export default function App() {
                   padding: "9px 18px", borderRadius: 11, cursor: "pointer", fontSize: 13, fontWeight: 600, fontFamily: "inherit",
                   border: activeTab === t.key ? "1px solid #4f46e5" : "1px solid #e2e8f0",
                   background: activeTab === t.key ? "#eef2ff" : "#fff",
-                  color: activeTab === t.key ? "#4f46e5" : "#64748b" }}>{t.label}</button>
+                  color: activeTab === t.key ? "#4f46e5" : "#64748b"
+                }}>{t.label}</button>
               ))}
             </div>
 
             {activeTab === "compare"
               ? <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", gap: 18 }}>
-                  <EnginePanel kind="ml" data={data.ml} comparison={data.comparison} />
-                  <EnginePanel kind="ai" data={data.ai} comparison={data.comparison} />
-                </div>
+                <EnginePanel kind="ml" data={data.ml} comparison={data.comparison} />
+                <EnginePanel kind="ai" data={data.ai} comparison={data.comparison} />
+              </div>
               : <CompareTable mlData={data.ml} aiData={data.ai} comparison={data.comparison} />}
           </div>
         )}
 
         {!data && !loading && (
           <div style={{ textAlign: "center", color: "#cbd5e1", fontSize: 13, padding: "30px 0" }}>
-            Fill in the parameters above and click <strong style={{ color: "#94a3b8" }}>Compare ML vs AI</strong> to see recommendations.
+            Fill in the parameters above and click <strong style={{ color: "#94a3b8" }}>ML Recommendation & AI Explanation</strong> to see results.
           </div>
         )}
       </main>
 
       <footer style={{ textAlign: "center", padding: "24px", fontSize: 12, color: "#cbd5e1", borderTop: "1px solid #eef2f7" }}>
-        MLCheM Selector · ML text classifier × GPT-OSS 120B
+        MLCheM Selector · ML Classification + AI-Assisted Explanation (GPT-OSS 120B)
       </footer>
 
       <style>{`
