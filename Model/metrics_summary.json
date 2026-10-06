@@ -1,0 +1,50 @@
+{
+  "model": "Complement NB (Alpha 0.5)",
+  "accuracy": 0.88,
+  "accuracy_ci95_wilson": [
+    0.7619,
+    0.9438
+  ],
+  "macro_precision": 0.8745,
+  "macro_recall": 0.8915,
+  "macro_f1": 0.8774,
+  "baseline_zero_r_test": 0.44,
+  "lift_percentage_points": 44.0,
+  "classes": [
+    "COSMO-RS",
+    "DFT",
+    "MD"
+  ],
+  "n_records": 323,
+  "n_papers_total": 314,
+  "n_train_records": 273,
+  "n_train_papers": 266,
+  "n_test_records": 50,
+  "n_test_papers": 48,
+  "rows_in_sheet": 338,
+  "rows_dropped_missing": 1,
+  "rows_excluded_other_methods": 14,
+  "excluded_methods": {
+    "Grand Canonical Monte Carlo (GCMC)": 2,
+    "Molecular Docking": 2,
+    "Monte Carlo (MC) Simulation": 1,
+    "Neural Network Potential Energy Surface (NN-PES)": 1,
+    "SCAPS-1D": 1,
+    "Monte Carlo (GCMC)": 1,
+    "QM/MM": 1,
+    "Machine Learning": 1,
+    "Electrochemical Experiment (LSV)": 1,
+    "GCMC": 1,
+    "Ab-initio (CCSD(T))": 1,
+    " ": 1
+  },
+  "selection_rule": "shortlist within 0.005 of best CV macro-F1, then min (train F1 - CV F1)",
+  "random_state": 42,
+  "versions": {
+    "python": "3.13.13",
+    "scikit_learn": "1.6.1",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "xgboost": "3.2.0"
+  }
+}

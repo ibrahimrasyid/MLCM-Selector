@@ -1,0 +1,4 @@
+,pred_COSMO-RS,pred_DFT,pred_MD
+true_COSMO-RS,12,0,1
+true_DFT,2,18,2
+true_MD,1,0,14

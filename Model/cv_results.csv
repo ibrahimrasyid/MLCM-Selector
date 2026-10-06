@@ -1,0 +1,11 @@
+Model,CV_Accuracy,CV_Accuracy_SD,CV_Precision,CV_Recall,CV_MacroF1,CV_MacroF1_SD,Train_MacroF1,Generalization_Gap
+Zero-R (Majority Baseline),0.4433,0.0369,0.1478,0.3333,0.2045,0.0119,0.2047,0.0003
+Multinomial Naive Bayes (Alpha 0.3),0.8675,0.0381,0.8702,0.876,0.867,0.0421,0.9718,0.1048
+Complement NB (Alpha 0.1),0.8643,0.0255,0.8589,0.8766,0.8612,0.0321,0.9738,0.1126
+Complement NB (Alpha 0.3),0.8644,0.022,0.8624,0.8796,0.8625,0.0266,0.9713,0.1088
+Complement NB (Alpha 0.5),0.8678,0.0284,0.8682,0.8812,0.8655,0.0319,0.9695,0.1041
+Logistic Regression (balanced),0.8456,0.0366,0.8543,0.8571,0.8508,0.0365,0.9897,0.1389
+Logistic Regression (standard),0.8636,0.0525,0.8819,0.8689,0.8678,0.0531,0.9886,0.1208
+Linear SVC (calibrated),0.8567,0.0296,0.866,0.8687,0.8614,0.0292,0.9964,0.135
+Ensemble Soft Voting,0.8604,0.0243,0.8661,0.8716,0.863,0.0272,0.9816,0.1186
+XGBoost,0.8204,0.0429,0.8381,0.8318,0.8201,0.041,1.0,0.1799

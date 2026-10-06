@@ -1,0 +1,16 @@
+Model: Complement NB (Alpha 0.5)
+Accuracy: 0.880 (95% Wilson CI 0.762-0.944)
+Macro-F1: 0.877
+
+              precision    recall  f1-score   support
+
+    COSMO-RS       0.80      0.92      0.86        13
+         DFT       1.00      0.82      0.90        22
+          MD       0.82      0.93      0.88        15
+
+    accuracy                           0.88        50
+   macro avg       0.87      0.89      0.88        50
+weighted avg       0.90      0.88      0.88        50
+
+Zero-R baseline (test set): 0.440
+Lift: +44.0 percentage points
