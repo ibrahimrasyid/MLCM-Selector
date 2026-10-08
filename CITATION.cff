@@ -3,7 +3,7 @@ title: "MLCheM Selector — Machine Learning-based Computational Chemistry Metho
 message: "If you use this software or dataset, please cite it as below."
 type: software
 version: 1.1.1
-date-released: 2026-10-06
+date-released: 2026-10-09
 license: MIT
 repository-code: "https://github.com/ibrahimrasyid/MLCM-Selector"
 url: "https://mlcm-selector.vercel.app"
